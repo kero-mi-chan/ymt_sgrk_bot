@@ -15,8 +15,9 @@ c = YAML.load_file CONFIG_FILE
 
 twitter = TwitterApiWrappter.new(c['twitter'])
 latest_tweet = LatestTweetAccessor.new
-
-options = { :since_id => latest_tweet.read }
+tweet_id = latest_tweet.read
+options = {}
+options[:since_id] = tweet_id if tweet_id > 0
 tweets = twitter.mentions options
 tweets.reverse.each do |tweet|
   pp tweet

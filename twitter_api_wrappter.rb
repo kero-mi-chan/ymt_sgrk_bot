@@ -12,7 +12,7 @@ class TwitterApiWrappter
   end
 
   def mentions(options = {})
-    tweets = @core.mentions options
+    tweets = @core.mentions_timeline options
   end
 
   def update(message)

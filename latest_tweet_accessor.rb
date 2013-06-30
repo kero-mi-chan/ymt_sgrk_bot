@@ -9,7 +9,7 @@ class LatestTweetAccessor
     id = 0
 
     if File.exist? @file
-      id = File.read @file
+      id = File.read(@file).to_i
     end
 
     id
